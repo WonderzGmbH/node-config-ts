@@ -13,3 +13,4 @@ test/
 *.yml
 tslint.json
 tsconfig.json
+*.test.js
