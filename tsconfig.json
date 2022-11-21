@@ -5,6 +5,7 @@
     "strict": true,
     "esModuleInterop": true,
     "resolveJsonModule": true,
+    "declaration": true,
     "plugins": [{ "name": "typescript-tslint-plugin", "configFile": "./tslint.json" }],
     "outDir": "./dist",
     "types": ["node", "mocha"],
