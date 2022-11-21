@@ -1,11 +1,6 @@
 {
   "name": "@wonderzgmbh/node-config-ts",
-  "version": "1.0.0-alpha.1",
-  "files": [
-    "dist/**/*.js",
-    "bin/**/*.ts",
-    "package.json"
-  ],
+  "version": "1.0.0-alpha.2",
   "main": "./dist/index.js",
   "bin": "./bin/cli",
   "publishConfig": {

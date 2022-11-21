@@ -3,7 +3,6 @@
 !*.js
 *.ts
 !*.d.ts
-index.d.ts
 .idea/
 test/
 *.map
@@ -13,3 +12,7 @@ test/
 *.yml
 tslint.json
 tsconfig.json
+*.test.js
+*.test.d.ts
+
+__tests__
