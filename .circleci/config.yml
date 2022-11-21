@@ -3,9 +3,9 @@ version: 2.1
 # #############################################################################
 
 parameters:
-  node_v14_docker_image:
+  node_docker_image:
     type: string
-    default: cimg/node:14.18.2
+    default: cimg/node:18.12.1
 
 # #############################################################################
 
@@ -26,7 +26,7 @@ jobs:
   # -------------------------------------------------------
   test:
     docker:
-      - image: << pipeline.parameters.node_v14_docker_image >>
+      - image: << pipeline.parameters.node_docker_image >>
     resource_class: medium
     working_directory: ~/project
     steps:
@@ -48,14 +48,13 @@ jobs:
   # -------------------------------------------------------
   publish:
     docker:
-      - image: << pipeline.parameters.node_v14_docker_image >>
+      - image: << pipeline.parameters.node_docker_image >>
     resource_class: medium
     working_directory: ~/project
     steps:
       - checkout:
           path: ~/project
       - run: echo "//npm.pkg.github.com/:_authToken=$GITHUB_ACCESS_TOKEN" > /home/circleci/.npmrc
-      - run: yarn audit --groups dependencies
       # Download and cache dependencies
       - restore_cache:
           keys:
@@ -80,7 +79,7 @@ jobs:
   # -------------------------------------------------------
   final:
     docker:
-      - image: << pipeline.parameters.node_v14_docker_image >>
+      - image: << pipeline.parameters.node_docker_image >>
     resource_class: medium
     steps:
       - run:
