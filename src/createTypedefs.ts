@@ -15,7 +15,7 @@ const jsToTsOutput = JsonToTS(config, { rootName: 'IConfig' });
 debug('jsToTsOutput', jsToTsOutput);
 
 const ts = format(
-  ['/* tslint:disable */', '/* eslint-disable */', 'declare module "node-config-ts" {']
+  ['/* tslint:disable */', '/* eslint-disable */', 'declare module "@wonderzgmbh/node-config-ts" {']
     .concat(jsToTsOutput)
     .concat(['export const config: Config', 'export type Config = IConfig', '}'])
     .join('\n'),
