@@ -3,6 +3,7 @@
 !*.js
 *.ts
 !*.d.ts
+index.d.ts
 .idea/
 test/
 *.map
