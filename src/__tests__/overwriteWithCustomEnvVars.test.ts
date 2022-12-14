@@ -9,12 +9,14 @@ describe('overwriteWithCustomEnvVars', () => {
       env: {
         PORT: '5050',
         TIMEOUT_STEP_2: 234,
+        TIMEOUT_STEP_3: 321,
         123: 'testtest',
       },
     };
     const expectedOutput = {
       timeouts: {
         step2: 234,
+        step3: 321,
       },
       level1: {
         item1: 'testtest',

@@ -19,6 +19,11 @@ describe('mergeAllConfigs()', () => {
       type: 'user',
       port: 9000,
       maxRetries: 999,
+      timeouts: {
+        step1: 1,
+        step2: 2,
+        step3: 3,
+      },
     };
     assert.deepEqual(actual, expected);
   });
@@ -39,6 +44,11 @@ describe('mergeAllConfigs()', () => {
       port: 3000,
       wonder: 'woman',
       maxRetries: 999,
+      timeouts: {
+        step1: 1,
+        step2: 2,
+        step3: 3,
+      },
     };
     assert.deepEqual(actual, expected);
   });
@@ -58,6 +68,11 @@ describe('mergeAllConfigs()', () => {
       type: 'user',
       port: 3000,
       maxRetries: 150,
+      timeouts: {
+        step1: 1,
+        step2: 2,
+        step3: 3,
+      },
     };
     assert.deepEqual(actual, expected);
   });
@@ -79,6 +94,11 @@ describe('mergeAllConfigs()', () => {
         type: 'user',
         port: 9000,
         maxRetries: 999,
+        timeouts: {
+          step1: 1,
+          step2: 2,
+          step3: 3,
+        },
       };
       assert.deepEqual(actual, expected);
     });
@@ -99,6 +119,11 @@ describe('mergeAllConfigs()', () => {
         port: 3000,
         wonder: 'woman',
         maxRetries: 999,
+        timeouts: {
+          step1: 1,
+          step2: 2,
+          step3: 3,
+        },
       };
       assert.deepEqual(actual, expected);
     });
@@ -118,6 +143,11 @@ describe('mergeAllConfigs()', () => {
         type: 'user',
         port: 3000,
         maxRetries: 150,
+        timeouts: {
+          step1: 1,
+          step2: 2,
+          step3: 3,
+        },
       };
       assert.deepEqual(actual, expected);
     });
@@ -141,6 +171,11 @@ describe('mergeAllConfigs()', () => {
         type: 'user',
         port: 3000,
         maxRetries: 666,
+        timeouts: {
+          step1: 1,
+          step2: 2,
+          step3: 3,
+        },
       };
       assert.deepEqual(actual, expected);
     });
@@ -163,6 +198,40 @@ describe('mergeAllConfigs()', () => {
         type: 'user',
         port: 3000,
         maxRetries: 150,
+        timeouts: {
+          step1: 1,
+          step2: 2,
+          step3: 3,
+        },
+      };
+      assert.deepEqual(actual, expected);
+    });
+
+    //
+    //
+    it('should override custom env vars from file', () => {
+      const process = {
+        argv: ['--port', '3000', '--maxRetries', '150'],
+        cwd: () => path.resolve(__dirname, '__fixtures__'),
+        env: {
+          DEPLOYMENT: 'www.example.com',
+          NODE_CONFIG_TS_ENV: 'production',
+          USER: 'root',
+          MAX_RETRIES_FROM_CUSTOM: 666,
+          TIMEOUT_STEP_2: 234,
+          TIMEOUT_STEP_3: 321,
+        },
+      };
+      const actual = mergeAllConfigs(process as unknown as NodeJS.Process);
+      const expected = {
+        type: 'user',
+        port: 3000,
+        maxRetries: 150,
+        timeouts: {
+          step1: 1,
+          step2: 234,
+          step3: 321,
+        },
       };
       assert.deepEqual(actual, expected);
     });
