@@ -52,14 +52,15 @@ export const overwriteWithCustomEnvVars = (process: NodeJS.Process) => {
   foundVars.forEach((f) => {
     let ref: NestedValue = obj;
     f.path.forEach((p, index) => {
+      debug(p, index);
       if (index === f.path.length - 1) {
         ref[p] = f.value;
         return;
       }
       if (ref[p] == null) {
         ref[p] = {};
-        ref = ref[p] as NestedValue;
       }
+      ref = ref[p] as NestedValue;
     });
   });
   debug('obj', obj);
