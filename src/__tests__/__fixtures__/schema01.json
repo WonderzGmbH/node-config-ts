@@ -1,0 +1,394 @@
+{
+  "$ref": "#/definitions/IConfig",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "definitions": {
+    "Aws": {
+      "additionalProperties": false,
+      "properties": {
+        "DynamoDb": {
+          "$ref": "#/definitions/DynamoDb"
+        },
+        "FeedCron": {
+          "$ref": "#/definitions/Hook"
+        },
+        "ImageConvert": {
+          "$ref": "#/definitions/Hook"
+        },
+        "Lambda": {
+          "$ref": "#/definitions/Lambda"
+        },
+        "MediaConvert": {
+          "$ref": "#/definitions/MediaConvert"
+        },
+        "buckets": {
+          "$ref": "#/definitions/Buckets"
+        },
+        "cdn": {
+          "$ref": "#/definitions/Cdn"
+        },
+        "defaultRegion": {
+          "type": "string"
+        },
+        "hook": {
+          "$ref": "#/definitions/Hook"
+        },
+        "key": {
+          "type": "string"
+        },
+        "secret": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "key",
+        "secret",
+        "defaultRegion",
+        "buckets",
+        "cdn",
+        "hook",
+        "ImageConvert",
+        "FeedCron",
+        "MediaConvert",
+        "Lambda",
+        "DynamoDb"
+      ],
+      "type": "object"
+    },
+    "Buckets": {
+      "additionalProperties": false,
+      "properties": {
+        "content": {
+          "type": "string"
+        },
+        "files": {
+          "type": "string"
+        },
+        "output": {
+          "type": "string"
+        },
+        "upload": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "upload",
+        "output",
+        "content",
+        "files"
+      ],
+      "type": "object"
+    },
+    "Cache": {
+      "additionalProperties": false,
+      "properties": {
+        "duration": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "duration"
+      ],
+      "type": "object"
+    },
+    "Cdn": {
+      "additionalProperties": false,
+      "properties": {
+        "baseUrl": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "baseUrl"
+      ],
+      "type": "object"
+    },
+    "Cookie": {
+      "additionalProperties": false,
+      "properties": {
+        "domain": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "domain"
+      ],
+      "type": "object"
+    },
+    "Db": {
+      "additionalProperties": false,
+      "properties": {
+        "charset": {
+          "type": "string"
+        },
+        "database": {
+          "type": "string"
+        },
+        "dialect": {
+          "type": "string"
+        },
+        "host": {
+          "type": "string"
+        },
+        "logging": {},
+        "operatorsAliases": {
+          "type": "number"
+        },
+        "password": {
+          "type": "string"
+        },
+        "port": {
+          "type": "number"
+        },
+        "seederStorage": {
+          "type": "string"
+        },
+        "timezone": {
+          "type": "string"
+        },
+        "username": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "username",
+        "password",
+        "database",
+        "host",
+        "port",
+        "dialect",
+        "charset",
+        "timezone",
+        "seederStorage",
+        "operatorsAliases"
+      ],
+      "type": "object"
+    },
+    "Dbdump": {
+      "additionalProperties": false,
+      "properties": {
+        "output": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "output"
+      ],
+      "type": "object"
+    },
+    "DynamoDb": {
+      "additionalProperties": false,
+      "properties": {
+        "lutTableName": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "lutTableName"
+      ],
+      "type": "object"
+    },
+    "Hook": {
+      "additionalProperties": false,
+      "properties": {
+        "SNSTopic": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "SNSTopic"
+      ],
+      "type": "object"
+    },
+    "IConfig": {
+      "additionalProperties": false,
+      "properties": {
+        "aws": {
+          "$ref": "#/definitions/Aws"
+        },
+        "baseUrl": {
+          "type": "string"
+        },
+        "cache": {
+          "$ref": "#/definitions/Cache"
+        },
+        "cookie": {
+          "$ref": "#/definitions/Cookie"
+        },
+        "db": {
+          "$ref": "#/definitions/Db"
+        },
+        "dbdump": {
+          "$ref": "#/definitions/Dbdump"
+        },
+        "excludeUrls": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "postDeploymentBodyLimit": {
+          "type": "number"
+        },
+        "pqueue": {
+          "$ref": "#/definitions/Pqueue"
+        },
+        "sentry": {
+          "$ref": "#/definitions/Sentry"
+        },
+        "throttle": {
+          "$ref": "#/definitions/Throttle"
+        },
+        "token": {
+          "$ref": "#/definitions/Token"
+        }
+      },
+      "required": [
+        "baseUrl",
+        "throttle",
+        "excludeUrls",
+        "cache",
+        "db",
+        "dbdump",
+        "postDeploymentBodyLimit",
+        "cookie",
+        "aws",
+        "pqueue",
+        "sentry",
+        "token"
+      ],
+      "type": "object"
+    },
+    "Integrations": {
+      "additionalProperties": false,
+      "properties": {
+        "fastifyHooks": {
+          "type": "boolean"
+        },
+        "fastifyMiddleware": {
+          "type": "boolean"
+        },
+        "http": {
+          "type": "boolean"
+        },
+        "mysql": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "http",
+        "mysql",
+        "fastifyMiddleware",
+        "fastifyHooks"
+      ],
+      "type": "object"
+    },
+    "Lambda": {
+      "additionalProperties": false,
+      "properties": {
+        "secret": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "secret"
+      ],
+      "type": "object"
+    },
+    "MediaConvert": {
+      "additionalProperties": false,
+      "properties": {
+        "endpoint": {
+          "type": "string"
+        },
+        "queue": {
+          "type": "string"
+        },
+        "roleARN": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "queue",
+        "endpoint",
+        "roleARN"
+      ],
+      "type": "object"
+    },
+    "Pqueue": {
+      "additionalProperties": false,
+      "properties": {
+        "concurrency": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "concurrency"
+      ],
+      "type": "object"
+    },
+    "Sentry": {
+      "additionalProperties": false,
+      "properties": {
+        "defaultSampleRate": {
+          "type": "number"
+        },
+        "enabled": {
+          "type": "boolean"
+        },
+        "endpoint": {
+          "type": "string"
+        },
+        "integrations": {
+          "$ref": "#/definitions/Integrations"
+        }
+      },
+      "required": [
+        "enabled",
+        "endpoint",
+        "defaultSampleRate",
+        "integrations"
+      ],
+      "type": "object"
+    },
+    "Throttle": {
+      "additionalProperties": false,
+      "properties": {
+        "burst": {
+          "type": "number"
+        },
+        "max": {
+          "type": "number"
+        },
+        "rate": {
+          "type": "number"
+        },
+        "timeWindow": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "burst",
+        "rate",
+        "max",
+        "timeWindow"
+      ],
+      "type": "object"
+    },
+    "Token": {
+      "additionalProperties": false,
+      "properties": {
+        "signingKey": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "signingKey"
+      ],
+      "type": "object"
+    }
+  }
+}
