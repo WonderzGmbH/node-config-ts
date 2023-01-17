@@ -23,7 +23,7 @@ describe('load-file-configs', () => {
       envConfig,
       userConfig,
     };
-    assert.deepEqual(actual, expected);
+    assert.deepStrictEqual(actual, expected);
   });
 
   it('should load default configs when not available', () => {
@@ -42,7 +42,7 @@ describe('load-file-configs', () => {
       envConfig: {},
       userConfig,
     };
-    assert.deepEqual(actual, expected);
+    assert.deepStrictEqual(actual, expected);
   });
 
   describe('alternative env varialble', () => {
@@ -62,7 +62,7 @@ describe('load-file-configs', () => {
         envConfig,
         userConfig,
       };
-      assert.deepEqual(actual, expected);
+      assert.deepStrictEqual(actual, expected);
     });
 
     it('should load default configs when not available', () => {
@@ -81,7 +81,7 @@ describe('load-file-configs', () => {
         envConfig: {},
         userConfig,
       };
-      assert.deepEqual(actual, expected);
+      assert.deepStrictEqual(actual, expected);
     });
   });
 });

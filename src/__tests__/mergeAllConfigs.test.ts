@@ -25,7 +25,7 @@ describe('mergeAllConfigs()', () => {
         step3: 3,
       },
     };
-    assert.deepEqual(actual, expected);
+    assert.deepStrictEqual(actual, expected);
   });
   it('should override with cli configs', () => {
     const process = {
@@ -50,7 +50,7 @@ describe('mergeAllConfigs()', () => {
         step3: 3,
       },
     };
-    assert.deepEqual(actual, expected);
+    assert.deepStrictEqual(actual, expected);
   });
   it('should override ENV variables with cli configs', () => {
     const process = {
@@ -74,7 +74,7 @@ describe('mergeAllConfigs()', () => {
         step3: 3,
       },
     };
-    assert.deepEqual(actual, expected);
+    assert.deepStrictEqual(actual, expected);
   });
 
   describe('alternative env varialble', () => {
@@ -100,7 +100,7 @@ describe('mergeAllConfigs()', () => {
           step3: 3,
         },
       };
-      assert.deepEqual(actual, expected);
+      assert.deepStrictEqual(actual, expected);
     });
     it('should override with cli configs', () => {
       const process = {
@@ -125,7 +125,7 @@ describe('mergeAllConfigs()', () => {
           step3: 3,
         },
       };
-      assert.deepEqual(actual, expected);
+      assert.deepStrictEqual(actual, expected);
     });
     it('should override ENV variables with cli configs', () => {
       const process = {
@@ -149,7 +149,7 @@ describe('mergeAllConfigs()', () => {
           step3: 3,
         },
       };
-      assert.deepEqual(actual, expected);
+      assert.deepStrictEqual(actual, expected);
     });
 
     //
@@ -177,7 +177,7 @@ describe('mergeAllConfigs()', () => {
           step3: 3,
         },
       };
-      assert.deepEqual(actual, expected);
+      assert.deepStrictEqual(actual, expected);
     });
 
     //
@@ -204,7 +204,7 @@ describe('mergeAllConfigs()', () => {
           step3: 3,
         },
       };
-      assert.deepEqual(actual, expected);
+      assert.deepStrictEqual(actual, expected);
     });
 
     //
@@ -233,7 +233,7 @@ describe('mergeAllConfigs()', () => {
           step3: 321,
         },
       };
-      assert.deepEqual(actual, expected);
+      assert.deepStrictEqual(actual, expected);
     });
   });
 });

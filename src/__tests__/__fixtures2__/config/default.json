@@ -1,0 +1,10 @@
+{
+  "type": "default",
+  "port": 9000,
+  "maxRetries": "@@MAX_RETRIES",
+  "timeouts": {
+    "step1": 1,
+    "step2": 2,
+    "step3": 3
+  }
+}

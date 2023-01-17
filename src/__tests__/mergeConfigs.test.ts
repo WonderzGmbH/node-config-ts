@@ -15,7 +15,7 @@ describe('mergeFileConfigs()', () => {
     };
     const actual = mergeFileConfigs(configs);
     const expected = { a: 1 };
-    assert.deepEqual(actual, expected);
+    assert.deepStrictEqual(actual, expected);
   });
   it('should override with envConfig', () => {
     const configs = {
@@ -27,7 +27,7 @@ describe('mergeFileConfigs()', () => {
     };
     const actual = mergeFileConfigs(configs);
     const expected = { a: 0, b: 2, c: 3 };
-    assert.deepEqual(actual, expected);
+    assert.deepStrictEqual(actual, expected);
   });
   it('should override with deploymentConfig', () => {
     const configs = {
@@ -39,7 +39,7 @@ describe('mergeFileConfigs()', () => {
     };
     const actual = mergeFileConfigs(configs);
     const expected = { a: 0, b: 2, c: 4, d: 5 };
-    assert.deepEqual(actual, expected);
+    assert.deepStrictEqual(actual, expected);
   });
   it('should override with userConfig', () => {
     const configs = {
@@ -51,7 +51,7 @@ describe('mergeFileConfigs()', () => {
     };
     const actual = mergeFileConfigs(configs);
     const expected = { a: 0, b: 2, c: 4, d: 6, e: 7 };
-    assert.deepEqual(actual, expected);
+    assert.deepStrictEqual(actual, expected);
   });
   it('should merge deeply', () => {
     const configs = {
@@ -63,6 +63,6 @@ describe('mergeFileConfigs()', () => {
     };
     const actual = mergeFileConfigs(configs);
     const expected = { a: { b: { c0: 1, c1: 2 } } };
-    assert.deepEqual(actual, expected);
+    assert.deepStrictEqual(actual, expected);
   });
 });

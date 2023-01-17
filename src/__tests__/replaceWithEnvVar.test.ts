@@ -17,7 +17,7 @@ describe('replaceWithEnvVar', () => {
     };
     const actual = replaceWithEnvVar(baseConfig, process as unknown as NodeJS.Process);
     const expected = { ...baseConfig, b: '5050' };
-    assert.deepEqual(actual, expected);
+    assert.deepStrictEqual(actual, expected);
   });
 
   it('should merge with deeply nested configs also', () => {
@@ -35,6 +35,6 @@ describe('replaceWithEnvVar', () => {
     };
     const actual = replaceWithEnvVar(baseConfig, process as unknown as NodeJS.Process);
     const expected = { a: { b: { c: '5050' } } };
-    assert.deepEqual(actual, expected);
+    assert.deepStrictEqual(actual, expected);
   });
 });

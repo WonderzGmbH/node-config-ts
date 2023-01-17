@@ -14,7 +14,7 @@ describe('config-paths', () => {
       const actual = configPaths(process as unknown as NodeJS.Process).defaultConfig;
       const expected = '/app/www.bravo.com/server/config/default.json';
 
-      assert.deepEqual(actual, expected);
+      assert.deepStrictEqual(actual, expected);
     });
   });
 
@@ -27,7 +27,7 @@ describe('config-paths', () => {
       const actual = configPaths(process as unknown as NodeJS.Process).envConfig;
       const expected = '/app/www.bravo.com/server/config/env/production.json';
 
-      assert.deepEqual(actual, expected);
+      assert.deepStrictEqual(actual, expected);
     });
     it('should return default config path', () => {
       const process = {
@@ -37,7 +37,7 @@ describe('config-paths', () => {
       const actual = configPaths(process as unknown as NodeJS.Process).envConfig;
       const expected = '/app/www.bravo.com/server/config/env/default.json';
 
-      assert.deepEqual(actual, expected);
+      assert.deepStrictEqual(actual, expected);
     });
   });
 
@@ -50,7 +50,7 @@ describe('config-paths', () => {
       const actual = configPaths(process as unknown as NodeJS.Process).deploymentConfig;
       const expected = '/app/www.bravo.com/server/config/deployment/www.example.com.json';
 
-      assert.deepEqual(actual, expected);
+      assert.deepStrictEqual(actual, expected);
     });
     it('should return default config path', () => {
       const process = {
@@ -60,7 +60,7 @@ describe('config-paths', () => {
       const actual = configPaths(process as unknown as NodeJS.Process).deploymentConfig;
       const expected = '/app/www.bravo.com/server/config/deployment/default.json';
 
-      assert.deepEqual(actual, expected);
+      assert.deepStrictEqual(actual, expected);
     });
   });
 
@@ -73,7 +73,7 @@ describe('config-paths', () => {
       const actual = configPaths(process as unknown as NodeJS.Process).userConfig;
       const expected = '/app/www.bravo.com/server/config/user/root.json';
 
-      assert.deepEqual(actual, expected);
+      assert.deepStrictEqual(actual, expected);
     });
     it('should return default config path', () => {
       const process = {
@@ -83,7 +83,7 @@ describe('config-paths', () => {
       const actual = configPaths(process as unknown as NodeJS.Process).userConfig;
       const expected = '/app/www.bravo.com/server/config/user/default.json';
 
-      assert.deepEqual(actual, expected);
+      assert.deepStrictEqual(actual, expected);
     });
   });
 
@@ -96,7 +96,7 @@ describe('config-paths', () => {
       const actual = configPaths(process as unknown as NodeJS.Process).userConfig;
       const expected = '/app/www.bravo.com/server/config/user/root.json';
 
-      assert.deepEqual(actual, expected);
+      assert.deepStrictEqual(actual, expected);
     });
     it('should return default config path', () => {
       const process = {
@@ -106,7 +106,7 @@ describe('config-paths', () => {
       const actual = configPaths(process as unknown as NodeJS.Process).userConfig;
       const expected = '/app/www.bravo.com/server/config/user/default.json';
 
-      assert.deepEqual(actual, expected);
+      assert.deepStrictEqual(actual, expected);
     });
   });
 
@@ -125,7 +125,7 @@ describe('config-paths', () => {
         userConfig: '/root/main/config/user/default.json',
       };
 
-      assert.deepEqual(actual, expected);
+      assert.deepStrictEqual(actual, expected);
     });
   });
 });
