@@ -12,9 +12,9 @@ describe('load-cli-configs', () => {
     };
     const actual = loadCLIConfigs(process);
     const expected = {
-      port: '100',
+      port: 100,
       env: 'production',
     };
-    assert.deepEqual(actual, expected);
+    assert.deepStrictEqual(actual, expected);
   });
 });

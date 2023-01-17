@@ -23,6 +23,6 @@ describe('overwriteWithCustomEnvVars', () => {
       },
     };
     const actual = overwriteWithCustomEnvVars(process as unknown as NodeJS.Process);
-    assert.deepEqual(actual, expectedOutput);
+    assert.deepStrictEqual(actual, expectedOutput);
   });
 });
