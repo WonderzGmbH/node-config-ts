@@ -8,7 +8,7 @@
   },
   "scripts": {
     "audit:prod": "yarn audit --groups dependencies",
-    "lint": "eslint --max-warnings=0 --ext ts,tsx src",
+    "lint": "eslint --max-warnings=0 .",
     "test": "mocha",
     "test:cli": "yarn compile && NODE_ENV=production NODE_CONFIG_TS_DIR=./dist/src/__tests__/__fixtures__/config OUTPUT_FILENAME=config.d.ts OUTPUT_FOLDER=./ node ./bin/cli",
     "compile": "tsc",
