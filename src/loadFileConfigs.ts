@@ -4,7 +4,7 @@ import fs from 'fs';
 import * as R from 'ramda';
 import { configPaths, ConfigTypes } from './configPaths';
 
-export type Configurations<T> = { [key in keyof T]: any };
+export type Configurations<T> = { [key in keyof T]: any }; // eslint-disable-line @typescript-eslint/no-explicit-any
 
 /**
  * Loads the configs provided in the {ConfigPaths}
@@ -16,6 +16,6 @@ export const loadFileConfigs = (process: NodeJS.Process): Configurations<ConfigT
   const paths = configPaths(process);
   debug('paths', paths);
 
-  const itar: any = R.mapObjIndexed(R.ifElse(fs.existsSync, require, R.always({})));
+  const itar: any = R.mapObjIndexed(R.ifElse(fs.existsSync, require, R.always({}))); // eslint-disable-line @typescript-eslint/no-explicit-any
   return itar(paths);
 };
