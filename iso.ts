@@ -1,3 +1,5 @@
-declare const __CONFIG__: Config
+import { Config } from './global';
 
-export const config: Config = __CONFIG__
+declare const __CONFIG__: Config;
+
+export const config: Config = __CONFIG__;

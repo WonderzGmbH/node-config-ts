@@ -28,6 +28,7 @@ export const overwriteWithCustomEnvVars = (process: NodeJS.Process) => {
     const vars = require(customEnvironmentVariablesPath); // eslint-disable-line @typescript-eslint/no-var-requires
     debug(vars);
 
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const itar = (value: any, path: Array<string>) => {
       debug('itar', value, path);
       if (R.is(Object, value)) {

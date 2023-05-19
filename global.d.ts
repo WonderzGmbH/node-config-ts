@@ -3,7 +3,7 @@
  */
 
 declare module '*.json' {
-  export {}
+  export {};
 }
 
-interface Config {}
+export interface Config {} // eslint-disable-line @typescript-eslint/no-empty-interface

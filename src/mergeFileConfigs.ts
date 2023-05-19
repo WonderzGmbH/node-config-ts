@@ -7,6 +7,7 @@ import * as R from 'ramda';
  * @return {any}
  */
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const mergeFileConfigs = (configs: { [key: string]: any }) => {
   return R.reduce(R.mergeDeepRight, configs.defaultConfig, [
     configs.envConfig,

@@ -8,6 +8,7 @@ const getVarName = R.replace('@@', '');
 const hasEnvVar = R.test(/^@@.*$/);
 
 export const replaceWithEnvVar = <T>(baseConfig: T, process: NodeJS.Process): T => {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const itar: any = R.map((value: any) => {
     if (R.is(Object, value)) {
       return itar(value);
